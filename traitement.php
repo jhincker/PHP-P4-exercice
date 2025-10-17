@@ -7,7 +7,7 @@ if (
     || strlen($_POST['description']) < 3
     || !filter_var($_POST['image'], FILTER_VALIDATE_URL)
 ) {
-    header('Location: ajouter.php');
+    header('Location: ajouter.php?error=true');
 } else {
     // Préparation
     $insertOeuvre = $bdd->prepare($sqlQuery);

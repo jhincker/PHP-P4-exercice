@@ -1,4 +1,8 @@
-<?php require 'header.php'; ?>
+<?php require 'header.php';
+if (htmlspecialchars($_GET['error'])) {
+    echo ('Description trop courte, veuillez recommencer la saisie.');
+}
+?>
 
 <form action="traitement.php" method="POST">
     <div class="champ-formulaire">
