@@ -1,7 +1,8 @@
 <?php
-    require 'header.php';
-    require 'oeuvres.php';
+    include 'header.php';
 
+    $bdd = connexion();
+    $oeuvres = $bdd->query('SELECT * FROM oeuvres');
     // Si l'URL ne contient pas d'id, on redirige sur la page d'accueil
     if(empty($_GET['id'])) {
         header('Location: index.php');
@@ -37,4 +38,4 @@
     </div>
 </article>
 
-<?php require 'footer.php'; ?>
+<?php include 'footer.php'; ?>
