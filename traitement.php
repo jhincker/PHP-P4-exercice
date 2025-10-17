@@ -14,10 +14,11 @@ if (
 
     // Exécution ! L'oeuvre' est maintenant en base de données
     $insertOeuvre->execute([
-        'titre' => $_POST['titre'],
-        'description' => $_POST['description'],
-        'artiste' => $_POST['artiste'],
-        'image' => $_POST['image']
+        'titre' => htmlspecialchars($_POST['titre']),
+        'description' => htmlspecialchars($_POST['description']),
+        'artiste' => htmlspecialchars($_POST['artiste']),
+        'image' => htmlspecialchars($_POST['image'])
     ]);
-    echo ('Nouvelle oeuvre ajoutée.');
+    $id = $bdd->lastInsertId();
+    header('Location: oeuvre.php?id=' . $id);
 }
