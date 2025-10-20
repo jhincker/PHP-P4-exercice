@@ -1,8 +1,11 @@
-<?php require 'header.php';
-if (htmlspecialchars($_GET['error'])) {
+<?php
+// Message d'erreur de saisie pour éviter un message système
+require 'header.php';
+if (isset($_GET['error']) && htmlspecialchars($_GET['error']) === 'true') {
     echo ('Description trop courte, veuillez recommencer la saisie.');
 }
 ?>
+
 
 <form action="traitement.php" method="POST">
     <div class="champ-formulaire">

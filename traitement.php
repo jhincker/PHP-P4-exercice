@@ -1,6 +1,8 @@
 <?php
 include 'bdd.php';
 $bdd = connexion();
+
+// Contrôle de la valeur des paramètres
 $sqlQuery = 'INSERT INTO oeuvres(titre, description, artiste, image) VALUES(:titre, :description, :artiste, :image)';
 if (
     empty($_POST['titre']) || empty($_POST['description']) || empty($_POST['artiste']) || empty($_POST['image'])
